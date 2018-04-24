@@ -1,0 +1,11 @@
+{
+  "appName": "Huxi",
+  "startExpirence": "Start Expirence",
+  "jump": "jump",
+  "account": "account",
+  "password": "password",
+  "forgetPassword": "forget password?",
+  "visitorLogin": "visitor login",
+  "login": "login",
+  "register": "register"
+}
