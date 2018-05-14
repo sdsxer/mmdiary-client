@@ -16,6 +16,8 @@ import NewsScreen from './screen/dynamics/news';
 import NewsDetailScreen from './screen/dynamics/news-detail';
 import StoryScreen from './screen/dynamics/story';
 import StoryDetailScreen from './screen/dynamics/story-detail';
+import DialectScreen from './screen/plaza/dialect';
+import ImpressionScreen from './screen/plaza/impression';
 
 import I18n from './i18n/i18n';
 
@@ -61,6 +63,18 @@ const App = StackNavigator(
       screen: StoryDetailScreen,
       navigationOptions: {
         title: I18n.t('Story')
+      }
+    },
+    Dialect: {
+      screen: DialectScreen,
+      navigationOptions: {
+        title: I18n.t('dialect')
+      }
+    },
+    Impression: {
+      screen: ImpressionScreen,
+      navigationOptions: {
+        title: I18n.t('impression')
       }
     },
   },

@@ -14,7 +14,9 @@ const AppNav = {
       News: 'News',
       Story: 'Story',
       NewsDetail: 'NewsDetail',
-      StoryDetail: 'StoryDetail'
+      StoryDetail: 'StoryDetail',
+      Dialect: 'Dialect',
+      Impression: 'Impression'
   }
 }
 

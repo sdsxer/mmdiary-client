@@ -38,7 +38,7 @@ export default class DynamicsScreen extends React.Component {
       {
         key: 'news',
         title: '湖西新闻',
-        content: '习近平总书记一行视察单县'
+        content: '王书记一行视察单县'
       },
       {
         key: 'story',

@@ -15,7 +15,7 @@ import {
 import AppStyle, { SystemStyle, PlatformStyle } from '../../styles';
 import AppNav from '../../navigation';
 
-export default class DialectScreen extends React.Component {
+export default class ImpressionScreen extends React.Component {
   
   constructor(props) {
     super(props);
