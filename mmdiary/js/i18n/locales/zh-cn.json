@@ -15,5 +15,12 @@
   "News": "湖西新闻",
   "Story": "小城故事",
   "dialect": "单县话",
-  "impression": "印象·单县"
+  "impression": "印象·单县",
+  "network_exception_tip": "网络异常，点击屏幕重试",
+  "no_data_tip": "暂时没有数据，到别处逛逛吧",
+  "pull_to_load_more": "上拉加载更多数据",
+  "loading": "数据加载中...",
+  "no_more_data": "没有更多数据了",
+  "load_more_failed": "加载更多数据失败，请重试",
+  "fetch_data_failed": "获取数据失败，请重试"
 }
