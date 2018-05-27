@@ -2,6 +2,27 @@
  * @author leon
  */
 
+export const MockDynamicsList = [
+  {
+    categoryId: '1',
+    categoryName: '单县新闻',
+    title: '王书记一行视察单县',
+    lastUpdate: 1527383433
+  },
+  {
+    categoryId: '2',
+    categoryName: '小城故事',
+    title: '第1期 - 北上广深的单县人',
+    lastUpdate: 1527383433
+  },
+  {
+    categoryId: '3',
+    categoryName: '保留',
+    title: '什么也没有',
+    lastUpdate: 1527363433
+  }
+]
+
 export const MockDialectList = [
   {
     title: '买啥',

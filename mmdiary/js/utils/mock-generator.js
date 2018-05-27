@@ -1,10 +1,21 @@
 /**
  * @author leon
  */
-import { MockDialectList } from './mock-data';
+import { MockDialectList, MockDynamicsList } from './mock-data';
 import uuid from 'react-native-uuid';
 
 let MockGenerator = {
+
+  generateDynamicsList: function() {
+    var response = {
+      code: 0,
+      message: 'success',
+      data: MockDynamicsList
+    }
+    return new Promise(function(resolve, reject) {
+      setTimeout(() => {resolve(response)}, 1000);
+    });
+  },
 
   generateNewsList: function() {
 
