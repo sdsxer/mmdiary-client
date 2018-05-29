@@ -11,12 +11,15 @@ const AppNav = {
       Dynamics: 'Dynamics',
       Plaza: 'Plaza',
       Profile: 'Profile',
+      Notice: 'Notice',
       News: 'News',
       Story: 'Story',
       NewsDetail: 'NewsDetail',
       StoryDetail: 'StoryDetail',
       Dialect: 'Dialect',
-      Impression: 'Impression'
+      Impression: 'Impression',
+      Food: 'Food',
+      Store: 'Store'
   }
 }
 

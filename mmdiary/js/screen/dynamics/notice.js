@@ -7,7 +7,7 @@ import {
   StyleSheet
 } from 'react-native';
 
-export default class FoodScreen extends React.Component {
+export default class NoticeScreen extends React.Component {
 
   constructor(props) {
     super(props);
@@ -16,15 +16,17 @@ export default class FoodScreen extends React.Component {
   render() {
     return (
       <View style={styles.rootContainer}>
+
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create(
-  {
-    rootContainer: {
+{
+  rootContainer: {
 
-    }
   }
+}
 )
+

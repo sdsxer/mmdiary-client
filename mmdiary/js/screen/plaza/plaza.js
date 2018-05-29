@@ -19,24 +19,46 @@ export default class PlazaScreen extends React.Component {
   render() {
     return (
       <View style={styles.rootContainer}>
+        {/* first row */}
         <View style={styles.rowContainer}>
+          {/* dialect */}
           <TouchableOpacity style={styles.moduleTouchableContainer} onPress={() => this._onDialectClick()}>
             <View style={styles.moduleContainer}>
               <Image style={styles.moduleIcon} source={require('../../../res/image/logo.png')}/>
               <Text style={styles.moduleTitle}>{I18n.t('dialect')}</Text>
             </View>
           </TouchableOpacity>
+          {/* impression */}
           <TouchableOpacity style={styles.moduleTouchableContainer} onPress={() => this._onImpressionClick()}>
             <View style={styles.moduleContainer}>
               <Image style={styles.moduleIcon} source={require('../../../res/image/logo.png')}/>
               <Text style={styles.moduleTitle}>{I18n.t('impression')}</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.moduleTouchableContainer}>
+          {/* food */}
+          <TouchableOpacity style={styles.moduleTouchableContainer} onPress={() => this._onFoodClick()}>
             <View style={styles.moduleContainer}>
               <Image style={styles.moduleIcon} source={require('../../../res/image/logo.png')}/>
-              <Text style={styles.moduleTitle}>{I18n.t('dialect')}</Text>
+              <Text style={styles.moduleTitle}>{I18n.t('food')}</Text>
             </View>
+          </TouchableOpacity>
+        </View>
+        {/* second row */}
+        <View style={styles.rowContainer}>
+          {/* store */}
+          <TouchableOpacity style={styles.moduleTouchableContainer} onPress={() => this._onStoreClick()}>
+            <View style={styles.moduleContainer}>
+              <Image style={styles.moduleIcon} source={require('../../../res/image/logo.png')}/>
+              <Text style={styles.moduleTitle}>{I18n.t('store')}</Text>
+            </View>
+          </TouchableOpacity>
+          {/* reserved */}
+          <TouchableOpacity style={styles.moduleTouchableContainer}>
+            
+          </TouchableOpacity>
+          {/* reserved */}
+          <TouchableOpacity style={styles.moduleTouchableContainer}>
+
           </TouchableOpacity>
         </View>
       </View>
@@ -47,8 +69,16 @@ export default class PlazaScreen extends React.Component {
     this.props.navigation.navigate(AppNav.Screen.Dialect);
   }
 
+  _onFoodClick() {
+    this.props.navigation.navigate(AppNav.Screen.Food);
+  }
+
   _onImpressionClick() {
     this.props.navigation.navigate(AppNav.Screen.Impression);
+  }
+
+  _onStoreClick() {
+    this.props.navigation.navigate(AppNav.Screen.Store);
   }
 }
 
@@ -74,7 +104,7 @@ const styles = StyleSheet.create(
     height: 80
   },
   moduleTitle: {
-    fontSize: AppStyle.TextSize.Medium,
+    fontSize: AppStyle.TextSize.Small,
     marginTop: 10
   }
 }

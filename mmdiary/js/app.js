@@ -12,13 +12,15 @@ import RegisterScreen from './screen/register';
 import LoginScreen from './screen/login';
 import AppNav from './navigation';
 import TabsRounter from './router/tabs';
+import NoticeScreen from './screen/dynamics/notice';
 import NewsScreen from './screen/dynamics/news';
 import NewsDetailScreen from './screen/dynamics/news-detail';
 import StoryScreen from './screen/dynamics/story';
 import StoryDetailScreen from './screen/dynamics/story-detail';
 import DialectScreen from './screen/plaza/dialect';
 import ImpressionScreen from './screen/plaza/impression';
-
+import FootScreen from './screen/plaza/food';
+import StoreScreen from './screen/plaza/store';
 import I18n from './i18n/i18n';
 
 const App = StackNavigator(
@@ -38,6 +40,13 @@ const App = StackNavigator(
     Tabs: {
       screen: TabsRounter,
       navigationOptions: { header: false }
+    },
+    Notice: {
+      screen: NoticeScreen,
+      navigationOptions: {
+        title: I18n.t('Notice'),
+        headerBackTitle: I18n.t('dynamics')
+      }
     },
     News: {
       screen: NewsScreen,
@@ -75,6 +84,18 @@ const App = StackNavigator(
       screen: ImpressionScreen,
       navigationOptions: {
         title: I18n.t('impression')
+      }
+    },
+    Food: {
+      screen: FootScreen,
+      navigationOptions: {
+        title: I18n.t('food')
+      }
+    },
+    Store: {
+      screen: StoreScreen,
+      navigationOptions: {
+        title: I18n.t('store')
       }
     },
   },

@@ -15,7 +15,7 @@ import AppStyle, { SystemStyle, PlatformStyle } from '../../styles';
 import AppNav from '../../navigation';
 import DataApi from '../../utils/data-api';
 import I18n from '../../i18n/i18n';
-import Moment from 'react-moment'
+import Moment from 'moment'
 import Toast, {DURATION} from 'react-native-easy-toast'
 
 export default class DynamicsScreen extends React.Component {
@@ -90,14 +90,17 @@ export default class DynamicsScreen extends React.Component {
             <Text style={styles.listItemBody} numberOfLines={1}>{item.title}</Text>
           </View>
           {/* datetime */}
-          <Text style={styles.listItemDatetime}>{item.lastUpdate}</Text>
+          <Text style={styles.listItemDatetime}>{Moment.unix(item.time).format("YYYY-MM-DD HH:mm:ss")}</Text>
         </View>
       </TouchableHighlight>
     );
   }
 
   _onListItemPress(item) {
-    if(item.key == '1') {
+    if(item.key == '0') {
+      this.props.navigation.navigate(AppNav.Screen.Notice);
+    }
+    else if(item.key == '1') {
       this.props.navigation.navigate(AppNav.Screen.News);
     }
     else if(item.key == '2') {
