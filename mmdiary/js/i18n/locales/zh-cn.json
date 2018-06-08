@@ -3,6 +3,8 @@
   "startExpirence": "开始体验",
   "jump": "跳过",
   "account": "账号",
+  "accout_or_mobile": "账号/手机号",
+  "mobile": "手机号",
   "password": "密码",
   "forgetPassword": "忘记密码？",
   "visitorLogin": "游客登录",
@@ -19,11 +21,17 @@
   "impression": "印象·单县",
   "food": "舌尖单县",
   "store": "单人店铺",
+  "OK": "确定",
+  "CANCEL": "取消",
   "network_exception_tip": "网络异常，点击屏幕重试",
   "no_data_tip": "暂时没有数据，到别处逛逛吧",
   "pull_to_load_more": "上拉加载更多数据",
   "loading": "数据加载中...",
   "no_more_data": "没有更多数据了",
   "load_more_failed": "加载更多数据失败，请重试",
-  "fetch_data_failed": "获取数据失败，请重试"
+  "fetch_data_failed": "获取数据失败，请重试",
+  "mobile_should_not_be_empty": "手机号码不能为空",
+  "incorrect_mobile": "请输入正确的手机号码",
+  "password_should_not_be_empty": "密码不能为空",
+  "incorrect_mobile_or_password": "账号或密码错误"
 }

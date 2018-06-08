@@ -15,8 +15,8 @@ import AppStyle, { SystemStyle, PlatformStyle } from '../../styles';
 import AppNav from '../../navigation';
 import DataApi from '../../utils/data-api';
 import I18n from '../../i18n/i18n';
-import Moment from 'moment'
-import Toast, {DURATION} from 'react-native-easy-toast'
+import Moment from 'moment';
+import Toast, {DURATION} from 'react-native-easy-toast';
 
 export default class DynamicsScreen extends React.Component {
   

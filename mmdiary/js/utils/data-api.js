@@ -7,6 +7,17 @@ import Settings from '../settings';
 
 let DataApi = {
 
+  login: function(mobile, password) {
+    if(Settings.mockData()) {
+      if(true) {
+        return MockGenerator.generateLoginResponse();
+      }
+      else {
+        return MockGenerator.generateErrorResponse();
+      }
+    }
+  },
+
   getDynamicsList: function() {
     if(Settings.mockData()) {
       return MockGenerator.generateDynamicsList();

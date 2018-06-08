@@ -2,27 +2,37 @@
  * @author leon
  */
 
-import React, { Component } from 'react';
+import React from 'react';
 import { 
   Text,
   View,
   Image,
+  Alert,
   StyleSheet, 
-  TextInput, 
+  TextInput,
+  ActivityIndicator,
   TouchableOpacity
 } from 'react-native';
 import AppStyle, { SystemStyle, PlatformStyle } from '../styles';
 import AppNav from '../navigation'
 import I18n from '../i18n/i18n';
+import CommonUtils from '../utils/common-utils';
+import DataApi from '../utils/data-api';
+import Toast, { DURATION } from 'react-native-easy-toast';
 
 export default class LoginScreen extends React.Component {
 
   constructor(props) {
     super(props);
+    this.account = '18810789600',
+    this.password = '123456',
     this.state = {
-      username: 'sdsxleon',
-      password: '123456'
+      loading: false
     };
+  }
+
+  componentDidMount() {
+    
   }
 
   render() {
@@ -34,8 +44,9 @@ export default class LoginScreen extends React.Component {
         <View style={[styles.inputContainer, {marginTop:20}]}>
           <Image style={styles.prefixImage} source={require('../../res/image/login_account.png')}/>
           <TextInput
-            placeholder={I18n.t('account')}
-            value={this.state.username}
+            onChangeText={(text) => this._onAccountChangeText(text)}
+            placeholder={I18n.t('mobile')}
+            value={this.account}
             style={styles.input}>
           </TextInput>
         </View>
@@ -45,21 +56,22 @@ export default class LoginScreen extends React.Component {
         <View style={[styles.inputContainer, {marginTop:20}]}>
           <Image style={styles.prefixImage} source={require('../../res/image/login_password.png')}/>
           <TextInput
+            onChangeText={(text) => this._onPasswordChangeText(text)}
             secureTextEntry={true}
             placeholder={I18n.t('password')}
-            value={this.state.password}
+            value={this.password}
             style={styles.input}>
           </TextInput>
         </View>
         {/* separator */}
         <View style={styles.separatorLine}/>
-        {/* forget password*/}
+        {/* forget password */}
         <TouchableOpacity style={styles.forgetPasswordContainer}>
           <Text style={styles.forgetPassword}>
             {I18n.t('forgetPassword')}
           </Text>
         </TouchableOpacity>
-        {/* register, login */}
+        {/* register & login */}
         <View style={styles.controlContainer}>
           {/* login */}
           <TouchableOpacity style={styles.loginContainer} onPress={() => this._onLogin()}>
@@ -74,22 +86,68 @@ export default class LoginScreen extends React.Component {
             </Text>
           </TouchableOpacity>
         </View>
-        {/* visitor */}
+        {/* visitor login */}
         <TouchableOpacity style={styles.visitorContainer}>
           <Text style={styles.visitor}>
             {I18n.t('visitorLogin')}
           </Text>
         </TouchableOpacity>
+        {/* loading bar */}
+        <ActivityIndicator
+          animating={this.state.loading}>
+        </ActivityIndicator> 
+        {/* toast */}  
+        <Toast 
+          ref="toast"
+          position='bottom'
+          positionValue={200}>
+        </Toast>
       </View>
     );
   }
 
   _onLogin() {
-    this.props.navigation.navigate(AppNav.Screen.Tabs);
+    // input verify
+    if(this.account == '') {
+      this.refs.toast.show(I18n.t('mobile_should_not_be_empty'), DURATION.LENGTH_LONG);
+      return;
+    }
+    if(!CommonUtils.isValidMobile(this.account)) {
+      this.refs.toast.show(I18n.t('incorrect_mobile'), DURATION.LENGTH_LONG);
+      return;
+    }
+    if(this.password == '') {
+      this.refs.toast.show(I18n.t('password_should_not_be_empty'), DURATION.LENGTH_LONG);
+      return;
+    }
+    // send login request
+    this.setState({loading: true});
+    var delegate = this;
+    DataApi.login(this.account, this.password)
+    .then(response => {
+      delegate.setState({loading: false});
+      delegate.props.navigation.navigate(AppNav.Screen.Tabs);
+    })
+    .catch(error => {
+      delegate.setState({loading: false});
+      Alert.alert(error.message, '',
+        [
+          {text: I18n.t('OK')}
+        ]
+      );
+    });
   }
 
   _onRegister() {
 
+  }
+
+  _onAccountChangeText(text) {
+    this.account = text;
+  }
+
+  _onPasswordChangeText(text) {
+    this.password = text;
   }
 
   _onForgetPassword() {
