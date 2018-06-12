@@ -1,7 +1,11 @@
 /**
  * @author leon
  */
-import { MockDialectList, MockDynamicsList } from './mock-data';
+import { 
+  MockDialectList, 
+  MockDynamicsList,
+  MockFoodList 
+} from './mock-data';
 import uuid from 'react-native-uuid';
 
 let MockGenerator = {
@@ -34,6 +38,45 @@ let MockGenerator = {
     })
   },
 
+  generateFoodListResponse(index_, pageSize_) {
+    var pageable = {
+      index: index_,
+      pageSize: pageSize_,
+      total: MockFoodList.length,
+      data: [],
+      hasMore: true
+    };
+
+    if(pageable.index < pageable.total) {
+      var left = pageable.total - pageable.index;
+      if(left > pageSize_) {
+        pageable.pageSize = pageSize_;
+        pageable.hasMore = true;
+      }
+      else {
+        pageable.pageSize = left;
+        pageable.hasMore = false;
+      }
+      for(var i = 0; i < pageable.pageSize; i++) {
+        pageable.data[i] = MockFoodList[index_ + i];
+        pageable.data[i].id = uuid.v4();
+      }
+    }
+    else {
+      pageable.hasMore = false;
+    }
+
+    var response = {
+      code: 0,
+      message: "success",
+      data: pageable,
+    };
+
+    return new Promise(function(resolve, reject) {
+      setTimeout(() => {resolve(response)}, 1000);
+    });
+  },
+
   generateDynamicsList: function() {
     var response = {
       code: 0,
@@ -45,7 +88,7 @@ let MockGenerator = {
     });
   },
 
-  generateNewsList: function() {
+  generateNewsListResponse: function() {
 
   },
 

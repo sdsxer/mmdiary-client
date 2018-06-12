@@ -28,6 +28,12 @@ let DataApi = {
     if(Settings.mockData()) {
       return MockGenerator.generateDialectList(index, pageSize);
     }
+  },
+
+  getFoodList: function(index, pageSize) {
+    if(Settings.mockData()) {
+      return MockGenerator.generateFoodListResponse(index, pageSize);
+    }
   }
 };
 
